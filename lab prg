@@ -53,3 +53,74 @@ abstract class Employee{
            emp2.displaySalaryDetails();
        }
      } 
+
+------------------------------------------------------------------------------------------------------------------------------------------
+abstract class BankAccount{
+    String accountNumber;
+    String holderName;
+    double balance;
+    public BankAccount(String accountNumber, String holderName, double balance){
+        this.accountNumber=accountNumber;
+        this.holderName=holderName;
+        this.balance=balance;
+    }
+    abstract double calculateInterest();
+    public void deposit(double amount){
+        balance+=amount;
+        System.out.println("Deposit: "+amount+" NewBlance: "+balance);
+    }
+    public void withdraw(double amount){
+        if(amount<=balance){
+            balance-=amount;
+            System.out.println("Withdraw :"+amount+" NewBalance: "+balance);
+        }else{
+            System.out.println("Insufficient Balance");
+        }
+    }
+
+    public String getAccountNumber() {
+        return accountNumber;
+    }
+
+    public void setAccountNumber(String accountNumber) {
+        this.accountNumber = accountNumber;
+    }
+
+    public String getHolderName() {
+        return holderName;
+    }
+
+    public void setHolderName(String holderName) {
+        this.holderName = holderName;
+    }
+}
+class SavingAccount extends BankAccount{
+    public SavingAccount(String accountNumber, String holderName, double balance){
+        super(accountNumber, holderName, balance);
+    }
+    @Override
+    public double calculateInterest(){
+        return balance*0.2;
+    }
+}
+class currentAccount extends BankAccount{
+    public currentAccount(String accountNumber, String holderName, double balance){
+        super(accountNumber, holderName, balance);
+    }
+    @Override
+    public double calculateInterest(){
+        return balance*0.2;
+    }
+}
+public class BankTest{
+    public static void main(String[] args) {
+        BankAccount savings= new SavingAccount("SA123", "Charlie", 10000);
+        System.out.println("Savings Account Interest: "+savings.calculateInterest());
+        savings.withdraw(3000);
+        BankAccount current= new currentAccount("CA456", "David", 15000);
+        System.out.println("Current Account Inerest: "+current.calculateInterest());
+        current.deposit(7000);
+        current.withdraw(5000);
+    }
+}
+------------------------------------------------------------------------------------------------------------------------------------------
