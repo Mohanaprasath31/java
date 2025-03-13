@@ -153,4 +153,26 @@ public class StudentGrades{
         
     }
 }
+-------------------------------------------------------------------------------------------------------
+class InventaryStock {
+    public static void main(String[] args){
+        int[] stock={10,5,0,8,3};
+        int minStock=stock[0];
+        int minindex=0;
+        boolean outOfStock=false;
+        for(int i=0;i<stock.length;i++){
+            if(stock[i]<minStock){
+                minStock=stock[i];
+                minindex=i;
+            }
+            if(stock[i]==0){
+                outOfStock=true;
+            }
+        }
+        System.out.println("Product with lowest stock:product"+ (minindex+1) + "stock:" + minStock);
+        System.out.println("is any product out of stock?"+(outOfStock?"yes":"No"));
+    }
+}
+    
+
 ---------------------------------------------------------------------------------------------------------
