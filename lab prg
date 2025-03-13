@@ -124,3 +124,33 @@ public class BankTest{
     }
 }
 ------------------------------------------------------------------------------------------------------------------------------------------
+public class StudentGrades{
+    
+    
+        public static void main(String[] args){
+            int[] marks ={85,92,78,90,88};
+            int total=0,max=marks[0],min=marks[0],countAboveAvg =0;
+            for( int mark:marks){
+                total+=mark;
+                if(mark>max){
+                    max=mark;
+                }
+                if(mark<min){
+                    min=mark;
+                }
+            }
+                   double Average=(double)total/marks.length;
+                for(int i : marks){
+                    if(i>Average){
+                        countAboveAvg++;
+                    }
+                }
+    
+        System.out.println("Average Marks:"+Average);
+        System.out.println("Highest Marks:"+max);
+        System.out.println("Lowest Marks:"+min);
+        System.out.println("Students scoring above Average :"+countAboveAvg);
+        
+    }
+}
+---------------------------------------------------------------------------------------------------------
