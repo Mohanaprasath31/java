@@ -310,7 +310,7 @@ abstract class Product{
         }
     
     }
-    public class vehicleRentalSystem{
+    public class OnlineShoppingSystem{
         public static void main(String[] args) {
             Product laptop=new Electronics("P111", "laptop", 1000);
             Product shirt=new Clothing("c202", "T shirt", 50);
