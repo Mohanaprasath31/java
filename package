@@ -1,0 +1,73 @@
+package library.books;
+public class Book{
+        private String title;
+		private String author;
+		private boolean available=true;
+		
+	public Book(String title,String author){
+	     this.title=title;
+		 this.author=author;
+	}
+	public boolean isAvailable(){
+	     return available;
+	}
+	public void borrow(){
+	     available=false;
+	}
+	public void returnBook(){
+	     available=true;
+	}
+	public void displayDetails(){
+	     System.out.println("Title:"+title+",Author:"+author+",Available:"+available);
+		 }
+     }
+     package library.users;
+public class Student{
+     private String name;
+	 private int rollno;
+	 
+	 public Student(String name,int rollno){
+	     this.name=name;
+		 this.rollno=rollno;
+	}
+	public void displayinfo(){
+	    System.out.println("Student Name:"+name+",Roll No:"+rollno);
+    }
+}
+package library.transactions;
+import library.books.Book;
+import library.users.Student;
+
+public class Transaction{
+        public void issueBook(Book book,Student student){
+		     if(book.isAvailable()){
+			     book.borrow();
+				 System.out.println("Book issued to:");
+				 student.displayinfo();
+				 }
+				 else{
+				     System.out.println("Book is not available");
+					 }
+				}
+		public void returnBook(Book book){
+		    book.returnBook();
+			System.out.println("book has been returned.");
+			}
+		}
+  package app;
+import library.books.Book;
+import library.users.Student;
+import library.transactions.Transaction;
+public class Main{
+     public static void main(String[] args){
+	    Book b1=new Book("Harry Potter","j.k. Rowling");
+		Student s1=new Student("harry",21);
+		Transaction transaction=new Transaction();
+		b1.displayDetails();
+		transaction.issueBook(b1,s1);
+		b1.displayDetails();
+		transaction.returnBook(b1);
+		b1.displayDetails();
+	}
+}
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
