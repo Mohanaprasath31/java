@@ -389,8 +389,8 @@ CHARACTER STREAM FILE
 import java.io.*;
 public class CharacterStream {
     public static void main (String []args)throws IOException{
-        FileReader rea=new FileReader ("bala.txt");
-        FileWriter writ=new FileWriter ("sankar.txt");
+        FileReader rea=new FileReader ("hlo.txt");
+        FileWriter writ=new FileWriter ("hi.txt");
         int ch;
         while((ch=rea.read())!=-1){
             writ.write(ch);
