@@ -49,3 +49,23 @@ public class Main {
     }
 } 
 -----------------------------------------------------------------------------------------------
+import java.util.Scanner;
+public class Main {
+    public static void main(String[] args) {
+        Scanner sc= new Scanner(System.in);
+        String word= sc.nextLine();
+        String s= sc.nextLine();
+        int count = 0;
+        int index = 0;
+        while ((index = word.indexOf(s, index)) != -1) {
+            count++;
+            index = index +s.length();
+        }
+        if (count == 0) {
+            System.out.print(-1);
+        } else {
+            System.out.print(count);
+        }
+    }
+}
+---------------------------------------------------------------------------------------------
